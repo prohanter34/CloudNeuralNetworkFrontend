@@ -4,8 +4,9 @@ import Structure from "./Structure/Structure";
 import Model from "./Model/Model";
 import Data from "./Data/Data";
 import Train from "./Train/Train";
+import Login from "../Login/Login";
 
-const Main = () => {
+const Main = (props) => {
     return (
         <div className={s.container}>
             <Routes>
@@ -14,6 +15,7 @@ const Main = () => {
                 <Route path="/model" element={<Model />}></Route>
                 <Route path="/data" element={<Data />}></Route>
                 <Route path="/train" element={<Train />}></Route>
+                <Route path="/login" element={<Login state={props.state.loginState} dispatch={props.dispatch}/>}></Route>
 
             </Routes>
         </div>

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import s from "./Header.module.css"
 
 let Header = (props) => {
@@ -6,7 +7,7 @@ let Header = (props) => {
             <div className={s.logo}>Cloud Neural Network</div>
             <div className={s.loginContainer}>
                 <div className={s.login}>{props.state.login}</div>
-                <a className={s.login_button} href="/login">login</a>
+                <NavLink className={s.login_button} to="/login">login</NavLink>
             </div>
         </div>
     )

@@ -12,4 +12,13 @@
     text-decoration: none;
     color: black;
     padding: 0.5rem 0;
+    width: 20%;
+}
+
+.path_active {
+    background-color: rgb(201, 195, 195);
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 0;
+    width: 20%;
 }

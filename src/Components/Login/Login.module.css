@@ -1,0 +1,12 @@
+.container {
+    margin: 10% auto;
+    width: 20%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.signIn_button {
+    width: fit-content;
+    margin: 0 auto;
+}
+
