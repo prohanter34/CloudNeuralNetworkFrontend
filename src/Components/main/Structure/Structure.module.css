@@ -1,0 +1,36 @@
+.layer_container {
+    display: block;
+    /* background-color: green; */
+
+}
+
+.layers {
+    display: flex;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+
+.layer_picture{
+    display: block;
+    /* height: 50vh; */
+    width: 15vw;
+    background-image: url("https://sun9-37.userapi.com/impg/6bnGL8W7QFrmal3bPDkFwKhr0J3Jp1TGGVtJfQ/3oD-ps4_0wA.jpg?size=240x1123&quality=96&sign=29728eb9a541a2bdc37c8ec1debdf984&type=album");
+}
+
+.layer_input {
+    margin: 5% 0;
+    font-size: 0.9rem;
+    height: 2rem;
+}
+
+.layer_select {
+    margin: 5% 0;
+    height: 2rem;
+    font-size: 0.9rem;
+}
+
+.form_container {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}

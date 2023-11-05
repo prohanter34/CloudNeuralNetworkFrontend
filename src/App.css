@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.settings_box {
+  display: block;
+  width: 40vw;
+  text-align: left;
+}
+
+.setting_param {
+  display: block;
+
+}
+

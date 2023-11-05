@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    height: fit-content;
+    background-color: rgb(253, 233, 233);
+    box-shadow: 0px 2px rgb(233, 233, 233);
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 3rem;
+}
+
+.path {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 0;
+}
