@@ -1,5 +1,7 @@
 .container {
     display: block;
-    height: 90vh;
+    /* height: 90vh; */
     padding: 4rem;
+    height: fit-content;
+    min-height: 90vh;
 }

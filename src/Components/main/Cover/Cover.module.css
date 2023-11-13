@@ -1,0 +1,33 @@
+.container {
+    text-align: left;
+    font-size: 1.5rem;
+    /* font-weight: 600; */
+    font-weight: inherit;
+    color: rgb(48, 47, 47);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(48, 47, 47);
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: rgb(65, 65, 65);
+    font-weight: 500;
+}
+
+.todo_list {
+    font-size: 1.2rem;
+    color: rgb(65, 65, 65);
+}
+
+div {
+    font-size: 1.2rem;
+    color: rgb(65, 65, 65);
+}
+
+.list_container {
+    margin: 2rem 0 0 2rem;
+}

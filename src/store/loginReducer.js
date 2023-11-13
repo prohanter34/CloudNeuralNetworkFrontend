@@ -3,7 +3,8 @@ import { loginAPI } from "../api/api"
 let SET_LOGIN = "SET_LOGIN"
 
 let initialState = {
-
+    resultCode: 1,
+    email: "",
     login: "jkjkkjkj"
 }
 
@@ -12,8 +13,7 @@ const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_LOGIN:
             return {
-                ...state,
-                login: action.login
+                ...action.state
             }
 
         default:
@@ -21,10 +21,10 @@ const loginReducer = (state = initialState, action) => {
     }
 }
 
-export let setLoginCreator = (login) => {
+export let setLoginCreator = (state) => {
     return {
         type: SET_LOGIN,
-        login: login
+        state
     }
 }
 
@@ -32,16 +32,16 @@ export let setLoginCreator = (login) => {
 //     loginAPI.loginApi(login, password)
 //         .then((data) => {
 //             if (data.data.resultCode === 0) {
-//                 dispatch(setLoginCreator(data.data.login))
+//                 dispatch(setLoginCreator(data.data))
 //             }
 //         })
 // }
 
-// export const registerThunk = (login, password) => (dispatch) => {
-//     loginAPI.registerApi(login, password)
+// export const registerThunk = (email, login, password) => (dispatch) => {
+//     loginAPI.registerApi(email, login, password)
 //         .then((data) => {
 //             if (data.data.resultCode === 0) {
-//                 dispatch(setLoginCreator(login))
+//                 dispatch(setLoginCreator(data.data))
 //             }
 //         })
 // }

@@ -5,17 +5,22 @@ import Model from "./Model/Model";
 import Data from "./Data/Data";
 import Train from "./Train/Train";
 import Login from "../Login/Login";
+import Cover from "./Cover/Cover";
+import Registration from "../Login/Registration";
 
 const Main = (props) => {
     return (
         <div className={s.container}>
             <Routes>
 
-                <Route path="/structure" element={<Structure />}></Route>
-                <Route path="/model" element={<Model />}></Route>
+                <Route path="/" element={<Cover />}></Route>
+                <Route path="/structure" element={<Structure state={props.state.structureState} dispatch={props.dispatch}/>}></Route>
+                <Route path="/model" element={<Model state={props.state.modelState} dispatch={props.dispatch} />}></Route>
                 <Route path="/data" element={<Data />}></Route>
-                <Route path="/train" element={<Train />}></Route>
+                <Route path="/train" element={<Train state={props.state.trainState} dispatch={props.dispatch}/>}></Route>
                 <Route path="/login" element={<Login state={props.state.loginState} dispatch={props.dispatch}/>}></Route>
+                <Route path="/registration" element={<Registration state={props.state.loginState} dispatch={props.dispatch}/>}></Route>
+
 
             </Routes>
         </div>

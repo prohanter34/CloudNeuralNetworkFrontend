@@ -1,14 +1,14 @@
 import {applyMiddleware, combineReducers, createStore} from "redux"
 import thunkMW from "redux-thunk"
-import modelReducer from "./modelReducer"
-import structuteReducer from "./structureReduser"
 import trainReducer from "./trainReducer"
 import loginReducer from "./loginReducer"
+import structureReducer from "./structureReducer"
+import modelReducer from "./modelReduser"
 
 
 let reducers = combineReducers({
     modelState: modelReducer,
-    structureState: structuteReducer,
+    structureState: structureReducer,
     trainState: trainReducer,
     loginState: loginReducer
 })

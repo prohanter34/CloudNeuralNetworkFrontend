@@ -8,11 +8,11 @@ let Data = (props) => {
             </div>
             <div className="data_prop">
                 <div className="input_field">
-                    <label htmlFor="depth">Глубина данных</label>
+                    <label className={s.label} htmlFor="depth">Глубина данных</label>
                     <input type="text" name="depth" />
                 </div>
                 <div className="input_field">
-                    <label htmlFor="size">Размер данных</label>
+                    <label className={s.label} htmlFor="size">Размер данных</label>
                     <input type="text" name="size" />
                 </div>
             </div>

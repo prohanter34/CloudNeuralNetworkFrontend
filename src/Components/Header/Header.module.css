@@ -11,6 +11,8 @@
 
 .logo {
     margin: 1rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 .login_button {
@@ -20,7 +22,7 @@
     padding: 0.3rem 1rem;
     border-radius: 8px;
     justify-self: end;
-    margin: 0 2rem 0 0;
+    margin: 0 1.5rem 0 0;
     display: block;
 }
 

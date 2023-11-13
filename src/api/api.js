@@ -14,7 +14,7 @@ export const loginAPI = {
     loginApi(login, password) {
         return instance.post("auth/login", {login, password})
     },
-    registerApi(login, password) {
-        return instance.post("auth/register", {login, password})
+    registerApi(email, login, password) {
+        return instance.post("auth/register", {email, login, password})
     },
 }
