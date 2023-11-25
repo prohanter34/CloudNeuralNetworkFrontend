@@ -1,20 +1,27 @@
 import { useState } from "react"
 import s from "./Login.module.css"
 import { setLoginCreator } from "../../store/loginReducer";
+import { registrationValidation } from "../../Validators/validators";
 
 
 const Registration = (props) => {
     const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [validation, setValid] = useState('');
 
     let submit = () => {
-        props.dispatch(setLoginCreator({
-            login,
-            email,
-            resultCode: 0
-        }))
+        let validResult = registrationValidation(login, email, password)
+        if (validResult === "") {
+            setValid('')
+            props.dispatch(setLoginCreator({
+                login,
+                email,
+                resultCode: 0
+            }))
+        } else {
+            setValid(validResult)
+        }
     }
 
 
@@ -34,10 +41,10 @@ const Registration = (props) => {
                     <label htmlFor="password">Password</label>
                     <input type="text" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                 </div>
+                <div className="warnings">{validation}</div>
                 <div>
                     <button className={s.signIn_button} onClick={() => submit(props.dispatch, login)}>Sign in</button>
                 </div>
-
 
             </div>
         </div>

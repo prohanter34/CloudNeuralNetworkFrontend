@@ -1,11 +1,12 @@
 import { loginAPI } from "../api/api"
 
 let SET_LOGIN = "SET_LOGIN"
+let QUIT = "QUIT"
 
 let initialState = {
     resultCode: 1,
     email: "",
-    login: "jkjkkjkj"
+    login: ""
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -15,16 +16,30 @@ const loginReducer = (state = initialState, action) => {
             return {
                 ...action.state
             }
+        case QUIT:
+            return {
 
+                resultCode: 1,
+                email: "",
+                login: ""
+
+            }
         default:
             return state;
     }
 }
 
 export let setLoginCreator = (state) => {
+    state.resultCode = 0
     return {
         type: SET_LOGIN,
         state
+    }
+}
+
+export const quitCreator = () => {
+    return {
+        type: QUIT
     }
 }
 

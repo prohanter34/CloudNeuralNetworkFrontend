@@ -7,8 +7,7 @@ const Login = (props) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
-
-    let submit = () => {
+    const submit = () => {
         props.dispatch(setLoginCreator({
             login,
             email: "pupu@gmail.com",
@@ -16,6 +15,12 @@ const Login = (props) => {
         }))
     }
 
+    let warning;
+    if (props.state.resultCode === 2) {
+        warning = "Что-то введено неверно"
+    } else {
+        warning = ""
+    }
 
     return (
         <div className={s.container}>
@@ -32,7 +37,7 @@ const Login = (props) => {
                 <div>
                     <button className={s.signIn_button} onClick={() => submit(props.dispatch, login)}>Sign in</button>
                 </div>
-                
+                <div className="warning">{warning}</div>
 
             </div>
         </div>

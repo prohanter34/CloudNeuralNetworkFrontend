@@ -1,6 +1,7 @@
 const ADD_HIDEN_LAYER = "ADD_HIDEN_LAYER"
 const SET_ACTIVATION_FUNCTIONS = "SET_ACTIVATION_FUNCTIONS"
 const SET_NEURON_COUNT = "SET_NEURON_COUNT"
+const DELETE_LAYER = "DELETE_LAYER"
 
 let initialState = {
     numHidenLayers: 3,
@@ -29,19 +30,33 @@ let structureReducer = (state = initialState, action) => {
             cloneState.neuronCounts = [...state.neuronCounts]
             cloneState.neuronCounts[action.id] = action.num
             return cloneState
+        case DELETE_LAYER:
+            cloneState = {...state}
+            cloneState.neuronCounts = [...state.neuronCounts]
+            cloneState.neuronCounts = cloneState.neuronCounts.filter((v, i, r) => {return i!==action.id})
+            cloneState.activationFunctions = [...state.activationFunctions]
+            cloneState.activationFunctions = cloneState.activationFunctions.filter((v, i, r) => {return i!==action.id})
+            return cloneState
         default:
             return state;
     }
 }
 
-export let addHidenLayerCreator = () => {
+export const deleteLayerCreator = (id) => {
+    return {
+        type: DELETE_LAYER,
+        id,
+    }
+}
+
+export const addHidenLayerCreator = () => {
     return {
         type: ADD_HIDEN_LAYER,
     }
 
 }
 
-export let setActivationFnCreator = (id, activationFunction) => {
+export const setActivationFnCreator = (id, activationFunction) => {
     return {
         type: SET_ACTIVATION_FUNCTIONS,
         id,
@@ -50,7 +65,7 @@ export let setActivationFnCreator = (id, activationFunction) => {
 
 }
 
-export let setNeuronCount = (id, num) => {
+export const setNeuronCount = (id, num) => {
     return {
         type: SET_NEURON_COUNT,
         id,

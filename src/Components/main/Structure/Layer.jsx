@@ -1,5 +1,5 @@
 import s from "./Structure.module.css"
-import { setActivationFnCreator, setNeuronCount } from "../../../store/structureReducer"
+import { deleteLayerCreator, setActivationFnCreator, setNeuronCount } from "../../../store/structureReducer"
 
 let Layer = (props) => {
 
@@ -9,6 +9,10 @@ let Layer = (props) => {
 
     const neuronCountOnChange = (value) => {
         props.dispatch(setNeuronCount(props.id, value))
+    }
+
+    const deleteOnClick = () => {
+        props.dispatch(deleteLayerCreator(props.id))
     }
 
     return (
@@ -38,6 +42,7 @@ let Layer = (props) => {
                         <option value="adam">adam</option>
                     </select>
                 </div>
+                <button className={s.delete_button} onClick={deleteOnClick}>Delete</button>
             </div>
         </div>
     )

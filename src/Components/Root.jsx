@@ -8,7 +8,7 @@ import Footer from './Footer/Foooter';
 const Root = (props) => {
     return (
         <BrowserRouter>
-            <Header state={props.state.loginState} />
+            <Header state={props.state.loginState} dispatch={props.dispatch}/>
             <Navigation />
             <Main state={props.state} dispatch={props.dispatch} />
             <Footer />

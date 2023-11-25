@@ -23,7 +23,7 @@ let Structure = (props) => {
             <div className={s.layers}>
 
                 {layers}
-                <AddLayer dispatch={props.dispatch} />
+                {props.state.neuronCounts.length > 5 ? null:<AddLayer dispatch={props.dispatch} />}
 
             </div>
         </div>
