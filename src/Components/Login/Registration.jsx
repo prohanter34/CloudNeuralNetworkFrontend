@@ -1,7 +1,8 @@
 import { useState } from "react"
 import s from "./Login.module.css"
-import { setLoginCreator } from "../../store/loginReducer";
+import { registerThunk, setLoginCreator } from "../../store/loginReducer";
 import { registrationValidation } from "../../Validators/validators";
+import { Navigate } from "react-router-dom";
 
 
 const Registration = (props) => {
@@ -14,16 +15,15 @@ const Registration = (props) => {
         let validResult = registrationValidation(login, email, password)
         if (validResult === "") {
             setValid('')
-            props.dispatch(setLoginCreator({
-                login,
-                email,
-                resultCode: 0
-            }))
+            props.dispatch(registerThunk(login, password, email))
         } else {
             setValid(validResult)
         }
     }
 
+    if (props.state.resultCode === 0) {
+        return <Navigate to="/" />
+    }
 
     return (
         <div className={s.container}>

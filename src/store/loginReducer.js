@@ -30,7 +30,7 @@ const loginReducer = (state = initialState, action) => {
 }
 
 export let setLoginCreator = (state) => {
-    state.resultCode = 0
+    // state.resultCode = 0
     return {
         type: SET_LOGIN,
         state
@@ -43,22 +43,22 @@ export const quitCreator = () => {
     }
 }
 
-// export const loginThunk = (login, password) => (dispatch) => {
-//     loginAPI.loginApi(login, password)
-//         .then((data) => {
-//             if (data.data.resultCode === 0) {
-//                 dispatch(setLoginCreator(data.data))
-//             }
-//         })
-// }
+export const loginThunk = (login, password) => (dispatch) => {
+    loginAPI.loginApi(login, password)
+        .then((data) => {
+            if (data.data.resultCode === 0 || data.data.resultCode === 2) {
+                dispatch(setLoginCreator(data.data))
+            }
+        })
+}
 
-// export const registerThunk = (email, login, password) => (dispatch) => {
-//     loginAPI.registerApi(email, login, password)
-//         .then((data) => {
-//             if (data.data.resultCode === 0) {
-//                 dispatch(setLoginCreator(data.data))
-//             }
-//         })
-// }
+export const registerThunk = (login, password, email) => (dispatch) => {
+    loginAPI.registerApi(email, login, password)
+        .then((data) => {
+            if (data.data.resultCode === 0) {
+                dispatch(setLoginCreator(data.data))
+            }
+        })
+}
 
 export default loginReducer

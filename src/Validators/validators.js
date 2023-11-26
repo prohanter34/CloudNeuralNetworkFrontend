@@ -1,5 +1,4 @@
 export const loginValidator = (login) => {
-    debugger
     const loginPattern = /^[a-zA-Z0-9]{5,15}$/
     return loginPattern.test(login)
 }

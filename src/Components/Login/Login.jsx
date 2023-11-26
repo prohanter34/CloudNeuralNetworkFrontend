@@ -1,6 +1,7 @@
 import { useState } from "react"
 import s from "./Login.module.css"
-import { setLoginCreator } from "../../store/loginReducer";
+import { loginThunk, setLoginCreator } from "../../store/loginReducer";
+import { Navigate } from "react-router-dom";
 
 
 const Login = (props) => {
@@ -8,13 +9,13 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
 
     const submit = () => {
-        props.dispatch(setLoginCreator({
-            login,
-            email: "pupu@gmail.com",
-            resultCode: 0
-        }))
+        props.dispatch(loginThunk(login, password))
     }
-
+    if (props.state.resultCode === 0) {
+        return (
+            <Navigate to="/" />
+        )
+    }
     let warning;
     if (props.state.resultCode === 2) {
         warning = "Что-то введено неверно"
