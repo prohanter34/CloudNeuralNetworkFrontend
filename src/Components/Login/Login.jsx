@@ -33,7 +33,7 @@ const Login = (props) => {
                 </div>
                 <div className="text_field">
                     <label htmlFor="password">Password</label>
-                    <input type="text" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                    <input type="password" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                 </div>
                 <div>
                     <button className={s.signIn_button} onClick={() => submit(props.dispatch, login)}>Sign in</button>

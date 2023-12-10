@@ -1,9 +1,40 @@
 .container {
-    margin: 7% auto;
-    width: 20%;
+    margin: 1vh auto;
+    width: 35%;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    padding: 3rem 3rem 1.5rem 3rem;
 }
 
 .label {
     text-align: left;
     margin-top: 1rem;
+}
+
+.splitValidation_container {
+    display: flex;
+}
+
+.splitValidation {
+    text-align: right;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.slice {
+    display: flex;
+    gap: 1rem;
+}
+
+.start_button {
+    text-decoration: none;
+    background-color: rgb(41, 40, 40);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: block;
+    width: fit-content;
+    font-size: 1.5rem;
 }

@@ -13,7 +13,7 @@ let Header = (props) => {
         if (props.state.resultCode === 0) {
             return (
                 <div className={s.loginContainer}>
-                    <div className={s.login}>{props.state.login}</div>
+                    <NavLink className={s.login} to="/account">{props.state.login}</NavLink>
                     <NavLink className={s.login_button} onClick={exitOnClick}>Exit</NavLink>
                 </div>
             )

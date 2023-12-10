@@ -4,12 +4,12 @@ const SET_NEURON_COUNT = "SET_NEURON_COUNT"
 const DELETE_LAYER = "DELETE_LAYER"
 
 let initialState = {
-    numHidenLayers: 3,
+    numHidenLayers: 2,
     neuronCounts: [128, 128],
     activationFunctions: ["relu", "relu"]
 }
 
-let structureReducer = (state = initialState, action) => {
+const structureReducer = (state = initialState, action) => {
     let cloneState
     switch (action.type) {
         case ADD_HIDEN_LAYER:
@@ -32,6 +32,7 @@ let structureReducer = (state = initialState, action) => {
             return cloneState
         case DELETE_LAYER:
             cloneState = {...state}
+            cloneState.numHidenLayers = state.numHidenLayers - 1
             cloneState.neuronCounts = [...state.neuronCounts]
             cloneState.neuronCounts = cloneState.neuronCounts.filter((v, i, r) => {return i!==action.id})
             cloneState.activationFunctions = [...state.activationFunctions]

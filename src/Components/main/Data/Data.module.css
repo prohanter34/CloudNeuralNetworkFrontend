@@ -1,5 +1,18 @@
 .container {
     margin: 8% auto;
-    width: 20%;
+    width: 50%;
+    gap: 1.5rem;
     display: flex;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    padding: 3rem 3rem 3rem 3rem;
+}
+
+
+.input_area {
+    height: 7rem;
+}
+
+.file {
+    margin-right: 1rem;
 }

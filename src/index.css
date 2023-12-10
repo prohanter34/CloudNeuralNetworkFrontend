@@ -147,3 +147,11 @@ button {
   display: block;
   font-size: 1rem;
 }
+
+
+input[type=file] {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  display: block;
+}
