@@ -1,11 +1,15 @@
+import { trainingAPI } from "../api/api"
+
 const SET_DATADEEP = 'SET_DATADEEP'
 const SET_DATA_SIZE = 'SET_DATA_SIZE'
 const SET_FILE = 'SET_FILE'  
+const SET_PATH = "SET_PATH" 
 
 let initialState = {
     dataDeep: 128,
     dataSize: 729,
-    file: ""
+    file: "",
+    datasetPath: ""
 }
 
 let dataReducer = (state = initialState, action) => {
@@ -22,6 +26,10 @@ let dataReducer = (state = initialState, action) => {
         case SET_FILE:
             cloneState = {...state}
             cloneState.file = action.file
+            return cloneState
+        case SET_PATH:
+            cloneState = {...state}
+            cloneState.datasetPath = action.path
             return cloneState
         default:
             return state
@@ -47,6 +55,20 @@ export const setFile = (file) => {
         type: SET_FILE,
         file: file
     }
+}
+
+export const setDatasetPath = (path) => {
+    return {
+        type: SET_PATH,
+        path
+    }
+}
+
+export const setPathThunk = (file) => (dispatch) => {
+    trainingAPI.uploadDataset(file)
+    .then((data) => {
+        dispatch(setDatasetPath(data.data.dataset_file_name))
+    })
 }
 
 export default dataReducer

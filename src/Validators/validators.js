@@ -36,3 +36,10 @@ export const registrationValidation = (login, email, password) => {
         return 'что-то не так'
     }
 }
+
+export const paramsValidator = (state) => {
+    if (!state.dataState.file) {
+        return "Загрузите данные"
+    }
+    return ""
+}

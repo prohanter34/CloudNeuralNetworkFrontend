@@ -39,7 +39,6 @@ const Layer = (props) => {
                         className={s.layer_select}
                         name="activation"
                         id="">
-                        <option> </option>
                         <option value="relu">relu</option>
                         <option value="softmax">softmax</option>
                     </select>

@@ -1,11 +1,9 @@
 .container {
     margin: 8% auto;
     width: 50%;
-    gap: 1.5rem;
-    display: flex;
     border-radius: 2rem;
     box-shadow: 0 0 20px rgba(0,0,0,.1);
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 3rem 3rem 2rem 3rem;
 }
 
 
@@ -13,6 +11,47 @@
     height: 7rem;
 }
 
+.input_area_warning {
+    background-color: transparent;
+    border-color: #f44;
+    box-shadow: inset 1px 0 0 #f44, inset 0 1px 0 #f44, inset -1px 0 0 #f44, inset 0 -1px 0 #f44;
+    height: 7rem;
+}
+
 .file {
     margin-right: 1rem;
+}
+
+.flex_container {
+    gap: 1.5rem;
+    display: flex;
+}
+
+.send_button {
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.data_warning_on {
+    margin-top: 0.5rem;
+    color: red;
+    font-size: 1.2rem;
+    height: 1rem;
+}
+
+.data_warning {
+    height: 1rem;
+    display: none;
+}
+
+.send_data_checker_on {
+    color: green;
+    height: 1rem;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.send_data_checker {
+    display: none;
 }

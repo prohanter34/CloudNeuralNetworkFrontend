@@ -1,3 +1,22 @@
 .container {
-    
+    display: flex;
+    margin: -4rem;
+    font-size: 1.2rem;
+}
+
+.neural_list {
+    display: block;
+    width: 20%;
+    /* height: 100vh; */
+    background-color: rgb(253, 233, 233);
+    box-shadow: 0px 0px 5px rgb(190, 190, 190);
+    padding: 1rem;
+    margin-top: 4rem;
+    font-size: 1rem;
+}
+
+.discription {
+    width: 80%;
+    height: 100%;
+    margin-top: 5rem;
 }

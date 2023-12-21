@@ -27,22 +27,22 @@ export const trainingAPI = {
             }
         })
     },
-    uploadParams(params) {
+    uploadParams(structure, model, data1, train) {
 
         let data = {
-            opt_fn: params.model.optimization,
-            loss_fn: params.model.lossFunction,
+            opt_fn: model.optimization,
+            loss_fn: model.lossFunction,
 
-            neuron_count: params.structure.neuronCounts,
-            hidden_layer_count: params.structure.numHidenLayers,
-            act_fn: params.structure.activationFunctions,
+            neuron_count: structure.neuronCounts,
+            hidden_layer_count: structure.numHidenLayers,
+            act_fn: structure.activationFunctions,
 
-            depth_input_data: params.data.dataDeep,
-            dataset_filename: params.path,
+            depth_input_data: data1.dataDeep,
+            dataset_filename: data1.datasetPath,
 
-            epochs: params.train.epochsCount,
-            validation_split: params.train.splitValidation,
-            batch_size: params.train.batchSize,
+            epochs: train.epochsCount,
+            validation_split: train.splitValidation,
+            batch_size: train.batchSize,
         }
 
         return instance.post('data', { ...data })
