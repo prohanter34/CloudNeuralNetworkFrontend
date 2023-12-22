@@ -40,6 +40,8 @@ export const registrationValidation = (login, email, password) => {
 export const paramsValidator = (state) => {
     if (!state.dataState.file) {
         return "Загрузите данные"
+    } else if (!state.waitTrainingState.networkName) {
+        return "Введите имя сети"
     }
     return ""
 }

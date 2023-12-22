@@ -51,9 +51,9 @@ export const setNetworkName = (name) => {
     }
 }
 
-export const sendParamsThunk = (structure, model, data, train) => (dispatch) => {
+export const sendParamsThunk = (structure, model, data, train, name, login) => (dispatch) => {
     dispatch(swithWaitMode())
-    trainingAPI.uploadParams(structure, model, data, train)
+    trainingAPI.uploadParams(structure, model, data, train, name, login)
     .then((data) => {
         dispatch(setKerasPath(data.data.neuralnetwork_file_name))
     })
@@ -63,12 +63,14 @@ export const downloadModelThunk = (path) => (dispatch) => {
     trainingAPI.downloadKeras(path)
     .then((data) => {
         const downloadURL = window.URL.createObjectURL(data.data)
-                        const link = document.createElement('a')
-                        link.href = downloadURL
-                        link.download = "neuralNetwork.keras"
-                        document.body.appendChild(link)
-                        link.click()
-                        document.body.removeChild(link)
+        const link = document.createElement('a')
+        link.href = downloadURL
+        link.download = "neuralNetwork.keras"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        dispatch(swithWaitMode())
+        dispatch(setKerasPath(""))
     })
 }
 

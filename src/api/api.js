@@ -7,7 +7,9 @@ const instance = axiox.create({
 })
 
 export const networkAPI = {
-
+    getNetworksAPI(login) {
+        return instance.get(`networks/${login}`)
+    }
 }
 
 export const loginAPI = {
@@ -27,9 +29,13 @@ export const trainingAPI = {
             }
         })
     },
-    uploadParams(structure, model, data1, train) {
+    uploadParams(structure, model, data1, train, name, login) {
 
         let data = {
+
+            name: name,
+            login: login,
+
             opt_fn: model.optimization,
             loss_fn: model.lossFunction,
 

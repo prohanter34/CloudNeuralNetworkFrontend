@@ -1,0 +1,12 @@
+.container {
+    align-items: center;
+    justify-items: center;
+}
+
+.download_button {
+    margin-left: 2rem;
+}
+
+.flex_header {
+    display: flex;
+}

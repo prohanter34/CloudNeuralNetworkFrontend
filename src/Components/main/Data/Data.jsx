@@ -34,7 +34,7 @@ const Data = (props) => {
             <div className={s.flex_container}>
 
                 <div className={s.file}>
-                    <label htmlFor="file">Загрузите данные в формате .css</label>
+                    <label htmlFor="file">Загрузите данные в формате .csv</label>
                     <input onChange={(e) => { fileOnChange(e.target.files[0]) }}
                         name="file"
                         className={emptyData ? s.input_area_warning : s.input_area}
