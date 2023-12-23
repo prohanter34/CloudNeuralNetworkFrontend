@@ -15,18 +15,16 @@ const Account = (props) => {
             <ItemNetworksList key={element[0]} state={element} dispatch={props.dispatch} />
         )
     })
-
-
     return (
         <div className={s.container}>
             <div className={s.neural_list}>
                 <h2>Ваши сети</h2> 
                 {neuralList}
-                {!props.state.networks ? <div>Здесь пока ничего нет</div> : ""}
+                {!props.state.networks.length ? <div>Здесь пока ничего нет</div> : ""}
             </div>
             <div className={s.discription}>
-                {Object.keys(props.state.selectedNetwork) ? 
-                <Network dispatch={props.dispatch} state={props.state.selectedNetwork} /> : 
+                {Object.keys(props.state.selectedNetwork).length ? 
+                <Network dispatch={props.dispatch} state={props.state.selectedNetwork} params={props.state.selectedNetworkParams} /> : 
                 "Здесь вы можете скачать ранее обученные сети"}
             </div>
         </div>

@@ -10,3 +10,16 @@
 .flex_header {
     display: flex;
 }
+
+.layerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 6rem;
+}
+
+.params {
+    display: block;
+    text-align: left;
+    margin-top: 3rem;
+}

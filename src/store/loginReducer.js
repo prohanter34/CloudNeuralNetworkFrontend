@@ -4,34 +4,33 @@ const SET_LOGIN = "SET_LOGIN"
 const QUIT = "QUIT"
 const SET_NETWORKS = "SET_NETWORKS"
 const SET_SELECTED_NETWORK = "SET_SELECTED_NETWORK"
+const SET_NETWORK_PARAMS = "SET_NETWORK_PARAMS" 
 
 const initialState = {
     resultCode: 1,
     email: "",
     login: "",
     networks: [],
-    selectedNetwork: {}
+    selectedNetwork: {},
+    selectedNetworkParams: {
+        optimization: "",
+        lossFn: "",
+        activations: [],
+        neuronCounts: []
+    }
 }
 
 const loginReducer = (state = initialState, action) => {
     let cloneState
     switch (action.type) {
         case SET_LOGIN:
-            return {
-                ...action.state,
-                networks: [],
-                selectedNetwork: {}
-            }
+            cloneState = {...state}
+            cloneState.login = action.state.login
+            cloneState.email = action.state.email
+            cloneState.resultCode = action.state.resultCode 
+            return cloneState
         case QUIT:
-            return {
-
-                resultCode: 1,
-                email: "",
-                login: "",
-                networks: [],
-                selectedNetwork: {}
-
-            }
+            return initialState
         case SET_NETWORKS:
             cloneState = {...state}
             cloneState.networks = action.networks
@@ -40,8 +39,19 @@ const loginReducer = (state = initialState, action) => {
             cloneState = {...state}
             cloneState.selectedNetwork = action.network
             return cloneState
+        case SET_NETWORK_PARAMS:
+            cloneState = {...state}
+            cloneState.selectedNetworkParams = action.params
+            return cloneState
         default:
             return state;
+    }
+}
+
+export const setNetworkParams = (params) => {
+    return {
+        type: SET_NETWORK_PARAMS,
+        params
     }
 }
 
@@ -108,6 +118,13 @@ export const downloadModelThunk = (path, name) => (dispatch) => {
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
+    })
+}
+
+export const getNetworkParamsThunk = (id) => (dispatch) => {
+    networkAPI.getNetworkParamsAPI(id)
+    .then((data) => {
+        dispatch(setNetworkParams(data.data))
     })
 }
 

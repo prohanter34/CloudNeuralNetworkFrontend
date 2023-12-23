@@ -9,6 +9,9 @@ const instance = axiox.create({
 export const networkAPI = {
     getNetworksAPI(login) {
         return instance.get(`networks/${login}`)
+    },
+    getNetworkParamsAPI(id) {
+        return instance.get(`networksParams/${id}`)
     }
 }
 
